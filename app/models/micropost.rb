@@ -5,7 +5,7 @@ class Micropost < ApplicationRecord
   validates :content, presence: true, length: {maximum:255}
   
   has_many :users
-  has_many :favorites
+  has_many :favorites, dependent: :destroy
   has_many :belikings, through: :favorites, source: :user
   
   def beliking?(user)
