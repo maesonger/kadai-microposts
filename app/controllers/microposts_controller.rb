@@ -22,8 +22,6 @@ class MicropostsController < ApplicationController
   
   
   def destroy
-    @beliking = Favorite.find_by(micropost_id: params[:id])
-    @beliking.destroy
     @micropost.destroy
     flash[:success] = 'メッセージを削除しました。'
     redirect_back(fallback_location: root_path)
